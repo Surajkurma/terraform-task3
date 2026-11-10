@@ -71,3 +71,16 @@ resource "docker_container" "web" {
         protocol = "tcp"
     }
 }
+
+Follow-up verification (final configuration)
+Updated main.tf to map host port 8081 to container port 80.
+Command: docker exec task3-nginx nginx -v
+Output: nginx version: nginx/1.31.8
+Command: docker exec task3-nginx wget -qO- http://127.0.0.1
+Output: Nginx welcome page HTML (includes "Thank you for using nginx.").
+Command: docker port task3-nginx
+Output before port update: 80/tcp -> 0.0.0.0:8080
+Command: curl.exe --noproxy "*" http://127.0.0.1:8081
+Output: HTTP response included <title>Welcome to nginx!</title>
+Terraform apply after port update: 1 added, 0 changed, 1 destroyed.
+Final cleanup: terraform destroy completed; 2 resources destroyed.
