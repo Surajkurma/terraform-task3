@@ -15,4 +15,4 @@ This project uses Terraform and the Docker provider to create a local Nginx cont
 4. Checked Terraform state.
 5. Removed the resources with `terraform destroy`.
 
-The container mapped port 80 to host port 8080. The resources were destroyed after verification.
+The container mapped port 80 to host port 8081. The resources were destroyed after verification.
